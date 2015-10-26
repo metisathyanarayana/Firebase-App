@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="sampleApp">
-
 <head>
+    <title>Image Star Rating</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
     <script src="scripts/rating.js"></script>
@@ -10,20 +10,19 @@
 </head>
 
 <body ng-controller="RatingCtrl">
-
     <form id="postReviewForm" novalidate="" name="postReviewForm" class="ng-pristine ng-valid ng-scope ng-valid-required" ng-submit="rateFunction(rating,email)">
         <h3>Rate the below mobile</h3>
+        <label>Email:</label>
         <input type="text" ng-model="email" required />
         <div>
-            Mobile
-            <span class="star-rating" star-rating rating-value="rating" data-max="5" ></div>
+            <label>Mobile</label>
+            <span class="star-rating" star-rating rating-value="rating" data-max="5"></div>
         </div>
        
         <input type="submit" ng-disabled="form.$invalid"></input>
         <h3>Previous reviews</h3>
 
-        <div ng-repeat="review in reviews">
-
+        <div class="reviews" ng-repeat="review in reviews">
           <label>Email:</label><strong>{{review.email}} </strong>
           <label>Rating:</label><strong>{{review.Mobile}}</strong>
         </div>
